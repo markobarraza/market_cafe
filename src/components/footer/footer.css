@@ -1,0 +1,65 @@
+.icon {
+    display: flex;
+    justify-content: center;
+}
+
+.icon a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 60%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.icon a i {
+    font-size: 1.5em;
+    color: black;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+}
+
+.footercontainer {
+    width: 100%;
+    padding: 40px 30px 20px;
+    background-color: black;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+}
+
+.footernav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.footernav ul li {
+    margin: 0 15px;
+}
+
+.footernav ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    transition: 0.3s;
+}
+
+.footernav ul li a:hover {
+    color: gray;
+}
