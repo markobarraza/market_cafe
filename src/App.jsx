@@ -44,6 +44,7 @@ function App() {
                   <div>
                     <h3 className="text-lg font-semibold mb-4">Legal</h3>
                     <Link to="/policies" className="hover:text-brown-300">Políticas</Link>
+                    <p>Cambio marco</p>
                   </div>
                 </div>
               </div>
