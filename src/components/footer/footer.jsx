@@ -1,6 +1,6 @@
 import React from 'react';
 import "./footer.css";
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Importa FontAwesome
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 export default function Footer() {
   return (
