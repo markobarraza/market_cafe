@@ -1,0 +1,15 @@
+.navbar-style2{
+    background-color: #faf5eb !important;
+}
+.navbar-user-icon{
+    font-size: 1.2rem;
+    color: #b34f21;
+}
+.navbar-car-icon{
+    font-size: 1.2rem;
+    color: #b34f21;
+}
+
+.navbar .container .navbar-brand img{
+    width: 80px;
+}

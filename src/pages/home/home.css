@@ -1,0 +1,97 @@
+.header-container{
+    width: 100%;
+    height: 300px;
+    background-image: url(/src/assets/coffee-header-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+.header-container .header_bgcolor{
+    background-color: #37261ebb;
+    height: 300px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+    padding: 50px 0;
+}
+.header-container .header_bgcolor h1{
+    font-family: "Fascinate", serif ;
+    font-size: 7rem;
+    font-weight: 900;
+    /* text-transform: uppercase; */
+    letter-spacing: .2rem;
+}
+.header-container .header_bgcolor p{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+
+
+.header_categorias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.header_categorias .header_categoria-card{
+    text-align: center;
+    margin: 0 20px;
+}
+
+.header_categorias .header_categoria-card .header-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 100%;
+    position: relative;
+}
+.header_categorias .header_categoria-card .header-img .header-img_fondo{
+    background-color: #b34f21;
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+}
+.header_categorias .header_categoria-card .header-img img{
+    width: 140px;
+    position: absolute;
+}
+.header_categorias .header_categoria-card h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.header_categorias .header_categoria-card p{
+    width: 200px;
+    font-size: .9rem;
+    line-height: 1.1rem;
+}
+.container_tiendas{
+    text-align: center;
+}
+.container_tiendas h3{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-bottom: 20px;
+}
+
+.container_tiendas .tienda-line{
+    border-top: solid #d0d0d0 thin;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container_tiendas .container_tiendas-cards{
+    height: 500px;
+}
