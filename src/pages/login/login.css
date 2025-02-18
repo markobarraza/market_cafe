@@ -15,7 +15,7 @@
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 500px;
-    height: 300px;
+    height: 550px;
   }
   
   .user-icon {
@@ -29,7 +29,8 @@
     margin: 8px 0;
     border: 2px solid black;
     border-radius: 25px;
-    text-align: center;
+    text-align: left;
+    padding-left: 15px;
     font-size: 1rem;
   }
   
@@ -39,11 +40,24 @@
     color: black;
     text-decoration: none;
   }
-  
-  .forgot-password:hover {
-    text-decoration: underline;
+  .register-link {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: black;
+    text-decoration: none;
   }
-  
+  .forgot-password:hover {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  .register-link:hover {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
   .login-button {
     width: 100%;
     padding: 10px;
@@ -56,7 +70,7 @@
   }
   
   .login-button:hover {
-    background-color: black;
+    background-color: #c24e1d;
     color: white;
   }
   
