@@ -1,6 +1,5 @@
 import React from 'react'
 import "./home.css";
-import 'https://fonts.googleapis.com/css2?family=Fascinate&display=swap';
 
 const Home = () => {
   return (
