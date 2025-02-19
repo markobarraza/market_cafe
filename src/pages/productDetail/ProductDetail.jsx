@@ -18,7 +18,7 @@ export default function ProductDetail() {
                     <p>0</p>
                     <button type="button" class="btn btn-primary">+</button>
                 </div>
-                    <Button variant="success" >Add To Cart</Button>
+                    <button variant="success" >Add To Cart</button>
                 </div>
         </div>
 

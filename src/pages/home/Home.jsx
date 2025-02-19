@@ -1,5 +1,6 @@
 import React from 'react'
 import "./home.css"
+import ProductDetail from '../productDetail/ProductDetail'
 
 const Home = () => {
   return (
@@ -54,7 +55,7 @@ const Home = () => {
             <h3>Productos</h3>
             <div className="tienda-line"></div>
             <div className="container_tiendas-cards">
-
+                <ProductDetail />
             </div>
           </div>
     </>
