@@ -8,7 +8,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Profile from './pages/Profile';
-import ProductDetail from './pages/ProductDetail';
+import ProductDetail from './pages/productDetail/ProductDetail';
 import Cart from './pages/Cart';
 import Contact from './pages/Contact';
 import Policies from './pages/Policies';
@@ -25,7 +25,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/product:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/policies" element={<Policies />} />
