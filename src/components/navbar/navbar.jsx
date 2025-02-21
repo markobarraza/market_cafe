@@ -31,7 +31,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
                <Link to="/" className="nav-link">
-               <i class="fa-solid fa-cart-shopping navbar-car-icon"></i>
+               <i className="fa-solid fa-cart-shopping navbar-car-icon"></i>
                </Link>
             </li>
           </ul>

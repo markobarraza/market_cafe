@@ -1,0 +1,76 @@
+.containerProduct{
+    width: 300px;
+    height: max-content;
+  }
+  .containerProduct .containerProduct_img{
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
+  }
+  .containerProduct .containerProduct_img img{
+    max-width: 100%;
+  }
+  .containerProduct .containerProduct_info{
+    background-color: #d3ab98;
+    text-align: left;
+    padding: 25px 25px 15px 25px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .containerProduct .containerProduct_info h2{
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .containerProduct .containerProduct_info .descriptionProduct{
+    font-size: .8rem;
+    color: #4e4039;
+    line-height: 1.2rem;
+    margin: 5px 0 0 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
+  }
+  .containerProduct .containerProduct_info .priceProduct{
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin: 10px 0 0 0;
+  }
+  .containerProduct .containerProduct_info .addProduct{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0 0;
+  }
+  .containerProduct .containerProduct_info .addProduct a{
+    background-color: #b34f21;
+    border: none;
+    padding: 7px 20px;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .containerProduct .containerProduct_info .addProduct a:hover{
+    background-color: #b32d21;
+  }
+  .containerProduct .containerProduct_info .addProduct .btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .containerProduct .containerProduct_info .addProduct .btn-group .btn-addProduct{
+    background-color: #b34f21a5;
+    border: none;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .containerProduct .containerProduct_info .addProduct .btn-group p{
+    margin: 0 10px;
+  }

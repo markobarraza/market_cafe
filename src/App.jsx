@@ -12,9 +12,11 @@ import ProductDetail from './pages/productDetail/ProductDetail';
 import Cart from './pages/Cart';
 import Contact from './pages/Contact';
 import Policies from './pages/Policies';
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
+    <CartProvider>
     <UserProvider>
       <Router>
         <div className="min-h-screen flex flex-col">
@@ -35,6 +37,7 @@ function App() {
         </div>
       </Router>
     </UserProvider>
+    </CartProvider>
   );
 }
 

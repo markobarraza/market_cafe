@@ -1,8 +1,27 @@
-import React from 'react'
+import {useEffect, useState} from "react";
 import "./home.css"
-import ProductDetail from '../productDetail/ProductDetail'
+import CardProduct from '../../components/cardProduct/CardProduct'
 
 const Home = () => {
+
+      const [cafe, setCafe] = useState ([])
+
+      // Se consulta a la API de productos
+      const consultarAPI = async ()=>{
+          const response = await fetch(`https://dummyjson.com/products?limit=4`)
+          const data = await response.json()
+          setCafe(data.products)
+          console.log(data);
+          
+          
+      }
+  
+      useEffect ( ()=>{
+          consultarAPI()
+        }, [] )
+
+
+
   return (
     <>
       <header className='header-container'>
@@ -55,7 +74,12 @@ const Home = () => {
             <h3>Productos</h3>
             <div className="tienda-line"></div>
             <div className="container_tiendas-cards">
-                <ProductDetail />
+              
+                {cafe.map( (productos)=>(
+                  <CardProduct productos = {productos}/>
+                ) )}
+                
+                
             </div>
           </div>
     </>
