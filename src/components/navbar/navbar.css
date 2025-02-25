@@ -6,11 +6,13 @@
     font-size: 1.2rem;
     color: #b34f21;
 }
-.navbar-car-icon{
+.navbar-cart-icon{
     font-size: 1.2rem;
     color: #b34f21;
 }
-
+.navbar-cart-icon .cart-price{
+    
+}
 .navbar .container .navbar-brand img{
     width: 80px;
 }

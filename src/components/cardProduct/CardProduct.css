@@ -45,15 +45,16 @@
     align-items: center;
     padding: 20px 0 0 0;
   }
-  .containerProduct .containerProduct_info .addProduct a{
+  .containerProduct .containerProduct_info .addProduct .addProduct_button{
     background-color: #b34f21;
     border: none;
     padding: 7px 20px;
     color: #ffffff;
     border-radius: 5px;
     text-decoration: none;
+    cursor: pointer;
   }
-  .containerProduct .containerProduct_info .addProduct a:hover{
+  .containerProduct .containerProduct_info .addProduct .addProduct_button:hover{
     background-color: #b32d21;
   }
   .containerProduct .containerProduct_info .addProduct .btn-group{

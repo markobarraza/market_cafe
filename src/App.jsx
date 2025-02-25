@@ -9,7 +9,7 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Profile from './pages/Profile';
 import ProductDetail from './pages/productDetail/ProductDetail';
-import Cart from './pages/Cart';
+import Cart from './pages/cart/Cart';
 import Contact from './pages/Contact';
 import Policies from './pages/Policies';
 import CartProvider from './context/CartContext';
@@ -28,7 +28,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/product:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/carrito" element={<Cart />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/policies" element={<Policies />} />
             </Routes>

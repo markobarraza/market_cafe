@@ -1,9 +1,17 @@
-import React from "react";
+import {useContext} from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import { miles } from "../../utils/numbers";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./navbar.css";
 
 export default function Navbar() {
+
+  const {totalPagar} = useContext(CartContext)
+
+
+
+
   return (
 
     <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-style2">
@@ -30,8 +38,9 @@ export default function Navbar() {
               </ul>
             </li>
             <li className="nav-item">
-               <Link to="/" className="nav-link">
-               <i className="fa-solid fa-cart-shopping navbar-car-icon"></i>
+               <Link to="/carrito" className="nav-link">
+               <i className="fa-solid fa-cart-shopping navbar-cart-icon"></i>
+               <div className="cart-price">{miles(totalPagar || 0)}</div>
                </Link>
             </li>
           </ul>

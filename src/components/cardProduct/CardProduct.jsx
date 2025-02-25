@@ -6,10 +6,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const CardProduct = ({productos}) => {
     
-    const {incrementar, decrementar, obtenerCantidad} = useContext(CartContext)
+    const {incrementar, decrementar, obtenerCantidad, agregarAlCarrito} = useContext(CartContext)
 
   return (
-    <div className="containerProduct" >
+    <div key={productos.id} className="containerProduct" >
             <div className="containerProduct_img">
                 <img src={productos.thumbnail} className="imageProduct"   alt=""/>
             </div>
@@ -24,7 +24,7 @@ const CardProduct = ({productos}) => {
                 <p className="priceProduct" >{productos.price	}</p>
 
                 <div className="addProduct">
-                        <a href=""  className="addProduct_button">Añadir</a>    
+                        <div onClick={()=> agregarAlCarrito(productos)} className="addProduct_button">Añadir</div>    
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <button onClick={ ()=> decrementar(productos) } type="button" className="btn btn-primary btn-addProduct">-</button>
                         <p>{obtenerCantidad(productos)}</p>    

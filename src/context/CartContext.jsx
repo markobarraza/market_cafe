@@ -1,58 +1,87 @@
 import { createContext, useState } from "react";
 
+export const CartContext = createContext();
 
-export const CartContext = createContext()
+const CartProvider = ({ children }) => {
+  const [carrito, setCarrito] = useState([]);
 
-const CartProvider = ({children})=>{
-    const [carrito, setCarrito] = useState ([])
-    
+  let total = carrito.reduce(
+    (acumulador, productos) => (acumulador += productos.count),
+    0
+  );
 
-    let total = carrito.reduce( (acumulador, productos)=> acumulador += productos.count, 0 )
+  let totalPagar = carrito.reduce(
+    (acumulador, productos) =>
+      acumulador +
+      (Number(productos.price) || 0) * (Number(productos.count) || 0),
+    0
+  );
 
-    const incrementar = (productos)=>{
-    let itemCarrito = carrito.findIndex(item => item.id === productos.id)
-    let nuevoProducto = {id:productos.id, title:productos.title, description:productos.description, count:0}
-    console.log(itemCarrito);
-    console.log(nuevoProducto);
-    
-    if(itemCarrito >= 0){
-            carrito[itemCarrito].count++
-            setCarrito( [...carrito] )
-        }else{
-            setCarrito( [...carrito,nuevoProducto] )
-        }
+  //Función que se ejecuta cuando hacemos click en agregar a carrito,
+  const agregarAlCarrito = (producto) => {
+    //verificar si el producto ya esta en el carrito
+    const itemEnCarrito = carrito.find((item) => item.id === producto.id);
+
+    //si ya esta, vamos a disminuir o aumentar la cantidad
+    if (itemEnCarrito) {
+      setCarrito(
+        carrito.map((item) =>
+          item.id === producto.id ? { ...item, count: item.count + 1 } : item
+        )
+      );
+      //sino agregamos al carrito una propiedad count: 1
+    } else {
+      setCarrito([...carrito, { ...producto, count: 1 }]);
     }
+  };
+  
 
+  // Funcion incrementa en 1 producto
+  const incrementar = (producto) => {
+    setCarrito((prevCarrito) => {
+      let itemCarrito = prevCarrito.find((item) => item.id === producto.id);
 
-    const decrementar = (productos)=> {
-        let itemCarrito = carrito.findIndex(item => item.id === productos.id)
+      if (itemCarrito) {
+        return prevCarrito.map((item) =>
+          item.id === producto.id ? { ...item, count: item.count + 1 } : item
+        );
+      } else {
+        return [
+          ...prevCarrito,
+          { ...producto, count: 1, price: Number(producto.price) || 0 },
+        ];
+      }
+    });
+  };
 
-        if (itemCarrito >= 0) {
-            const nuevoCarrito =  [...carrito]
-            if (nuevoCarrito[itemCarrito].count > 1 ) {
-                nuevoCarrito[itemCarrito].count--
-            }else{
-                nuevoCarrito.splice(itemCarrito, 1)
-            }
-            setCarrito(nuevoCarrito)
-        }else{
+  // Funcion decrementa en 1 producto
+  const decrementar = (productos) => {
+    let itemCarrito = carrito.findIndex((item) => item.id === productos.id);
 
-        }
+    if (itemCarrito >= 0) {
+      const nuevoCarrito = [...carrito];
+      if (nuevoCarrito[itemCarrito].count > 1) {
+        nuevoCarrito[itemCarrito].count--;
+      } else {
+        nuevoCarrito.splice(itemCarrito, 1);
+      }
+      setCarrito(nuevoCarrito);
+    } else {
     }
+  };
 
+  const obtenerCantidad = (productos) => {
+    const itemEnCarrito = carrito.find((item) => item.id === productos.id);
+    return itemEnCarrito ? itemEnCarrito.count : 0;
+  };
 
-    const obtenerCantidad = (producto) => {
-        const itemEnCarrito = carrito.find((item) => item.id === producto.id);
-        return itemEnCarrito ? itemEnCarrito.count : 0;
-    }
+  return (
+    <CartContext.Provider
+      value={{ incrementar, decrementar, total, obtenerCantidad, totalPagar, agregarAlCarrito, carrito }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-    
-
-    return(
-        <CartContext.Provider value= {{incrementar, decrementar, total, obtenerCantidad}}>
-            {children}
-        </CartContext.Provider>
-    )
-}
-
-export default CartProvider
+export default CartProvider;

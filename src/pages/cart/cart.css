@@ -1,0 +1,101 @@
+.container_carrito{
+    height: 100vh;
+    display: flex;
+}
+.containerCarrito-bloque{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.containerCarrito-bloque .tituloCarrito{
+    margin: 20px 0 20px 0 ;
+}
+.containerCarrito-bloque .tituloCarrito2{
+    margin: 20px 0 20px 0 ;
+    text-align: center;
+}
+.containerCarrito-bloque .totalCarrito{
+    text-align: center;
+    font-weight: 900;
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
+}
+.containerCarrito-bloque .btnCarrito_pagar{
+    background-color: #333;
+    color: white;
+    border: none;
+    display: inline-block;
+    max-width: 200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.containerCarrito-bloque .btnCarrito_pagar:hover{
+    background-color: #5d5d5d;
+}
+.container_productsCart{
+    background-color: white;
+    max-width: 600px;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+.containerCart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.containerCart .containerCart_img{
+    background-color: white;
+}
+.containerCart .containerCart_img img{
+    max-width: 150px;
+}
+.containerCart .containerCart_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+.containerCart .containerCart_infoInner{
+    display: flex;
+    flex-direction: column;   
+}
+
+.containerCart .containerCart_infoInner h2{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+.containerCart .containerCart_infoInner .priceProduct{
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin: 0 0 0 0;
+}
+
+.containerCart .addProduct{
+
+}
+.containerCart .addProduct .btn-group p{
+    margin: 0 6px;
+}
+
+.containerCart .addProduct .btn-group .btn-addProduct{
+    background-color: #494949;
+    border: none;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
