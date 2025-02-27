@@ -46,12 +46,6 @@ export default function Policies() {
 
       <h2>8. Cambios en las Políticas</h2>
       <p>Nos reservamos el derecho de modificar estas políticas en cualquier momento. Los cambios serán notificados a los usuarios a través de la plataforma o por correo electrónico.</p>
-
-      <h2>9. Contacto</h2>
-      <p>Para preguntas, quejas o sugerencias, los usuarios pueden contactarnos a través de:</p>
-      <p><strong>Correo Electrónico:</strong> soporte@ecommercecafe.com</p>
-      <p><strong>Teléfono:</strong> +1 (800) 123-4567</p>
-      <p><strong>Dirección:</strong> Calle Café 123, Ciudad Cafetal, País.</p>
     </div>
   );
 }
