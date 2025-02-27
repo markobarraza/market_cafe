@@ -1,41 +1,51 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const profile = () => {
-    const [usuario, setUsuario] = useState(null);
-    const [error, setError] = useState(null);
-    
+const API_URL = "http://localhost:3000/usuarios/me"; // Se define fuera del useEffect
 
-    const API_URL = "http://localhost:3000/usuarios/2"
+const Profile = () => {
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchUsuario = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) throw new Error("No hay sesión activa");
 
-    useEffect(() => {
-        const fetchUsuario = async () => {
-          try {
-            const response = await fetch(API_URL);
-            console.log(response)
-            if (!response.ok) throw new Error("Error al obtener el usuario");
-            const data = await response.json();
-            setUsuario(data);
-          } catch (err) {
-            setError(err.message);
-          }
-        };
-    
-        fetchUsuario();
-      }, []);
+        const response = await axios.get(API_URL, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-      if (error) return <p>Error: {error}</p>;
-      if (!usuario) return <p>Cargando...</p>;
+        setUser(response.data);
+      } catch (err) {
+        setError(err.response?.data?.message || "Error al obtener el perfil");
+      }
+    };
+
+    fetchUsuario();
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Elimina el token
+    navigate("/login"); // Redirige al login
+  };
+
+  if (error) return <p className="error-message">{error}</p>;
+  if (!user) return <p>Cargando perfil...</p>;
 
   return (
-    <div>
-      <div className="p-4 bg-gray-100 rounded shadow-md w-64 mx-auto mt-10 text-center">
-      <h2 className="text-xl font-bold">Perfil del Usuario</h2>
-      <p><strong>Email:</strong> {usuario.email}</p>
+    <div className="profile-container">
+      <h2>Perfil del Usuario</h2>
+      <p><strong>Nombre:</strong> {user.nombre}</p>
+      <p><strong>Email:</strong> {user.email}</p>
+      <p><strong>Dirección:</strong> {user.direccion}</p>
+      <p><strong>Rol:</strong> {user.rol}</p>
+      <button onClick={handleLogout} className="logout-button">Cerrar sesión</button>
     </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default profile
+export default Profile;
