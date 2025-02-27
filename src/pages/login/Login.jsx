@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Login() {
+  const [usuarios, setUsuarios] = useState([]);
+  const consultarAPI = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/usuarios`);
+      if (!response.ok) throw new Error("Error al obtener los usuarios");
+      const data = await response.json();
+      setUsuarios(data); // Almacenar la lista de usuarios
+      console.log("Usuarios obtenidos:", data);
+    } catch (error) {
+      console.error("Error en la consulta:", error.message);
+    }
+  };
 
-  
-
-
+  useEffect(() => {
+    consultarAPI();
+  }, []);
+    
 
   return (
     <div className="login-container">
