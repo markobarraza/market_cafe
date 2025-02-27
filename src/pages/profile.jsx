@@ -4,7 +4,9 @@ const profile = () => {
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
     
+
     const API_URL = "http://localhost:3000/usuarios/2"
+
 
     useEffect(() => {
         const fetchUsuario = async () => {

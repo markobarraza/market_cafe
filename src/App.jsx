@@ -31,6 +31,7 @@ function App() {
               <Route path="/carrito" element={<Cart />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/policies" element={<Policies />} />
+              
             </Routes>
           </main>
           <Footer />
