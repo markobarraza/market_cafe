@@ -11,17 +11,17 @@ const CardProduct = ({productos}) => {
   return (
     <div key={productos.id} className="containerProduct" >
             <div className="containerProduct_img">
-                <img src={productos.thumbnail} className="imageProduct"   alt=""/>
+                <img src={productos.imagen} className="imageProduct"   alt=""/>
             </div>
 
             <div className="containerProduct_info">
                 <h2 className="titleProduct">
-                    {productos.title}
+                    {productos.nombre_producto}
                 </h2>
                 <p className="descriptionProduct">
-                    {productos.description	}
+                    {productos.descripcion	}
                 </p>
-                <p className="priceProduct" >{productos.price	}</p>
+                <p className="priceProduct" >{productos.precio	}</p>
 
                 <div className="addProduct">
                         <div onClick={()=> agregarAlCarrito(productos)} className="addProduct_button">Añadir</div>    

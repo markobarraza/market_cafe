@@ -13,7 +13,7 @@ const CartProvider = ({ children }) => {
   let totalPagar = carrito.reduce(
     (acumulador, productos) =>
       acumulador +
-      (Number(productos.price) || 0) * (Number(productos.count) || 0),
+      (Number(productos.precio) || 0) * (Number(productos.count) || 0),
     0
   );
 
@@ -48,7 +48,7 @@ const CartProvider = ({ children }) => {
       } else {
         return [
           ...prevCarrito,
-          { ...producto, count: 1, price: Number(producto.price) || 0 },
+          { ...producto, count: 1, precio: Number(producto.precio) || 0 },
         ];
       }
     });

@@ -8,9 +8,9 @@ const Home = () => {
 
       // Se consulta a la API de productos
       const consultarAPI = async ()=>{
-          const response = await fetch(`https://dummyjson.com/products?limit=4`)
+          const response = await fetch(`http://localhost:3000/productos`)
           const data = await response.json()
-          setCafe(data.products)
+          setCafe(data)
           console.log(data);
           
           

@@ -18,15 +18,15 @@ const Cart = () => {
 
               <div key={producto.id} className="containerCart" >
                   <div className="containerCart_img">
-                      <img src={producto.thumbnail} className="imageProduct"   alt=""/>
+                      <img src={producto.imagen} className="imageProduct"   alt=""/>
                   </div>
 
                   <div className="containerCart_info">
                     <div className="containerCart_infoInner">
                       <h2 className="titleProduct">
-                          {producto.title}
+                          {producto.nombre_producto}
                       </h2>
-                      <p className="priceProduct" >${producto.price	}</p>  
+                      <p className="priceProduct" >${producto.precio	}</p>  
                     </div>
 
                     <div className="addProduct">
