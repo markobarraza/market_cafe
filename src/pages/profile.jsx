@@ -122,7 +122,7 @@ const Profile = () => {
 
       <h3>Mis Productos</h3>
       <div className="productos-list">
-        {productos.map((producto) => (
+        {Array.isArray(productos) && productos.map((producto) => (
           <div key={producto.id} className="producto-item">
             <h4>{producto.nombre_producto}</h4>
             <p>{producto.descripcion}</p>
