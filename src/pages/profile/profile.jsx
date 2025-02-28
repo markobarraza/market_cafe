@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./profile.css"
 
 const API_URL = "http://localhost:3000/usuarios/me"; // Se define fuera del useEffect
 const API_PRODUCTOS_URL = "http://localhost:3000/productos"; // URL para crear productos
