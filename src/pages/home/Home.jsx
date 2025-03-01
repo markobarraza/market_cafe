@@ -1,24 +1,24 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "./home.css"
 import CardProduct from '../../components/cardProduct/CardProduct'
 
 const Home = () => {
 
-      const [cafe, setCafe] = useState ([])
+  const [cafe, setCafe] = useState([])
 
-      // Se consulta a la API de productos
-      const consultarAPI = async ()=>{
-          const response = await fetch(`http://localhost:3000/productos`)
-          const data = await response.json()
-          setCafe(data)
-          console.log(data);
-          
-          
-      }
-  
-      useEffect ( ()=>{
-          consultarAPI()
-        }, [] )
+  // Se consulta a la API de productos
+  const consultarAPI = async () => {
+    const response = await fetch(`http://localhost:3000/productos`)
+    const data = await response.json()
+    setCafe(data)
+    console.log(data);
+
+
+  }
+
+  useEffect(() => {
+    consultarAPI()
+  }, [])
 
 
 
@@ -32,56 +32,55 @@ const Home = () => {
       </header>
 
       <div className="header_categorias">
-            <div className="header_categoria-card">
-              <div className="header-img">
-                <div className="header-img_fondo"></div>
-                <img src="/src/assets/header-cafeteras.png" alt="" />
-              </div>
-              <h2>Cafeteras</h2>
-              <p>Diferentes formas de preparar tu cafe</p>
-            </div>
-            
-            <div className="header_categoria-card">
-              <div className="header-img">
-                <div className="header-img_fondo"></div>
-                <img src="/src/assets/header-cafeGrano.png" alt="" />
-              </div>
-              <h2>Cafe</h2>
-              <p>Molido, de grano entero, etc. para todos los gustos</p>
-            </div>
-            
-            <div className="header_categoria-card">
-              <div className="header-img">
-                <div className="header-img_fondo"></div>
-                <img src="/src/assets/header-molino.png" alt="" />
-              </div>
-              <h2>Molinos</h2>
-              <p>Muele tu propio cafe con esots accesorios</p>
-            </div>
-            
-            
-            <div className="header_categoria-card">
-              <div className="header-img">
-                <div className="header-img_fondo"></div>
-                <img src="/src/assets/header-accesorios.png" alt="" />
-              </div>
-              <h2>Accesorios</h2>
-              <p>Accesorios variados para mejorar tu experiencia</p>
-            </div>
+        <div className="header_categoria-card">
+          <div className="header-img">
+            <div className="header-img_fondo"></div>
+            <img src="/src/assets/header-cafeteras.png" alt="" />
           </div>
+          <h2>Cafeteras</h2>
+          <p>Diferentes formas de preparar tu cafe</p>
+        </div>
 
-          <div className="container_tiendas container">
-            <h3>Productos</h3>
-            <div className="tienda-line"></div>
-            <div className="container_tiendas-cards">
-              
-                {cafe.map( (productos)=>(
-                  <CardProduct productos = {productos}/>
-                ) )}
-                
-                
-            </div>
+        <div className="header_categoria-card">
+          <div className="header-img">
+            <div className="header-img_fondo"></div>
+            <img src="/src/assets/header-cafeGrano.png" alt="" />
           </div>
+          <h2>Cafe</h2>
+          <p>Molido, de grano entero, etc. para todos los gustos</p>
+        </div>
+
+        <div className="header_categoria-card">
+          <div className="header-img">
+            <div className="header-img_fondo"></div>
+            <img src="/src/assets/header-molino.png" alt="" />
+          </div>
+          <h2>Molinos</h2>
+          <p>Muele tu propio cafe con esots accesorios</p>
+        </div>
+
+
+        <div className="header_categoria-card">
+          <div className="header-img">
+            <div className="header-img_fondo"></div>
+            <img src="/src/assets/header-accesorios.png" alt="" />
+          </div>
+          <h2>Accesorios</h2>
+          <p>Accesorios variados para mejorar tu experiencia</p>
+        </div>
+      </div>
+
+      <div className="container_tiendas container">
+        <h3>Productos</h3>
+        <div className="tienda-line"></div>
+        <div className="container_tiendas-cards">
+
+          {cafe.map((producto) => (
+            <CardProduct key={producto.id} producto={producto} />
+          ))}
+
+        </div>
+      </div>
     </>
   )
 }

@@ -9,8 +9,8 @@ import Register from './pages/register/Register';
 import Profile from './pages/profile/profile';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import Cart from './pages/cart/Cart';
-import Contact from './pages/Contact';
-import Policies from './pages/Policies';
+import Contact from './pages/contact/Contact';
+import Policies from './pages/policies/Policies';
 import CartProvider from './context/CartContext';
 import { ProfileProvider } from './context/ProfileContext';
 
