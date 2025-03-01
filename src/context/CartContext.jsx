@@ -1,9 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+import axios from "axios";
+import { ProfileContext } from "./ProfileContext";
+import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
+  const {user, userToken} = useContext(ProfileContext);
+  const navigate = useNavigate()
 
   let total = carrito.reduce(
     (acumulador, productos) => (acumulador += productos.count),
@@ -18,7 +23,13 @@ const CartProvider = ({ children }) => {
   );
 
   //Función que se ejecuta cuando hacemos click en agregar a carrito,
-  const agregarAlCarrito = (producto) => {
+  const agregarAlCarrito = async (producto) => {
+    if (!userToken) {
+      alert("Debes iniciar sesión para agregar productos al carrito.");
+      navigate("/login");
+      return;
+    }
+
     //verificar si el producto ya esta en el carrito
     const itemEnCarrito = carrito.find((item) => item.id === producto.id);
 
@@ -32,6 +43,18 @@ const CartProvider = ({ children }) => {
       //sino agregamos al carrito una propiedad count: 1
     } else {
       setCarrito([...carrito, { ...producto, count: 1 }]);
+    }
+
+    // Llamada a la API para actualizar el carrito en el backend
+    try {
+      const token = localStorage.getItem("token");
+      await axios.post(
+        'http://localhost:3000/carrito', // URL de tu API para agregar productos al carrito
+        { producto_id: producto.id, cantidad: 1 }, // Enviar producto_id y cantidad
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+    } catch (error) {
+      console.error("Error al agregar producto al carrito:", error);
     }
   };
   

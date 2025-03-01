@@ -3,16 +3,50 @@
     border-bottom: 1px solid #f0d8cc;
 }
 .navbar-user-icon{
-    font-size: 1.2rem;
-    color: #b34f21;
 }
 .navbar-cart-icon{
-    font-size: 1.2rem;
-    color: #b34f21;
 }
-.navbar-cart-icon .cart-price{
-    
+.cart-price{
+    display: inline-block;
+    margin-left: 10px;
+    color: #b34f21;
+    font-weight: 700;
 }
 .navbar .container .navbar-brand img{
     width: 80px;
 }
+.navbar .container .navbar-collapse .navbar-nav .nav-item{
+    margin-right: 20px;
+    max-width: 100%;
+    color: #b34f21;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+.navbar .container .navbar-collapse .navbar-nav .user-info{
+    padding-right: 20px;
+}
+.navbar .container .navbar-collapse .navbar-nav .user-login{
+    color: unset;
+}
+.navbar .container .navbar-collapse .navbar-nav .btn-logout{
+    background-color: #b34f21;
+    font-size: .9rem;
+    border: none;
+    padding: 0 10px;
+    margin-left: 10px;
+    color: white;
+    border-radius: 30px;
+}
+.navbar .container .navbar-collapse .navbar-nav .btn-logout:hover{
+    background-color: #7f3918;
+}
+.navbar .container .navbar-collapse .navbar-nav .line-separador{
+    border-right: 1px solid #dfc9bf;
+}
+.navbar .container .navbar-collapse .navbar-nav .nav-item .nav-link{
+    color: #b34f21;
+    font-weight: 500;
+    padding-right: 20px;
+}
+

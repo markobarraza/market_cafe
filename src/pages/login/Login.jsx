@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useProfile } from "../../context/ProfileContext";
 import "./login.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -9,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate()
+  const { setUserToken } = useProfile(); // Usar el contexto
 
   const API_URL = "http://localhost:3000/login"; // URL del backend
 
@@ -17,8 +19,11 @@ export default function Login() {
     setError(null);
 
     try {
+      console.log("Enviando solicitud de inicio de sesión...");
       const response = await axios.post(API_URL, { email, contrasena: password });
+      console.log("Respuesta del servidor:", response.data);
       localStorage.setItem("token", response.data.token);
+      setUserToken(true); // Actualiza el estado de autenticación
       alert("Logueado con éxito");
       navigate("/profile"); // Redirige al perfil después del login
     } catch (err) {
