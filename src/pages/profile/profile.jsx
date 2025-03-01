@@ -42,48 +42,53 @@ const Profile = () => {
       )}
       <button onClick={handleLogout} className="logout-button">Cerrar sesión</button>
 
-      <h3>Publicar Nuevo Producto</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre del Producto:</label>
-          <input
-            type="text"
-            value={nombreProducto}
-            onChange={(e) => setNombreProducto(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Descripción del Producto:</label>
-          <textarea
-            value={descripcionProducto}
-            onChange={(e) => setDescripcionProducto(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Precio del Producto:</label>
-          <input
-            type="number"
-            value={precioProducto}
-            onChange={(e) => setPrecioProducto(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Publicar Producto</button>
-      </form>
 
-      <h3>Mis Productos</h3>
-      <div className="productos-list">
-        {Array.isArray(productos) &&
-          productos.map((producto) => (
-            <div key={producto.id} className="producto-item">
-              <h4>{producto.nombre_producto}</h4>
-              <p>{producto.descripcion}</p>
-              <p><strong>Precio:</strong> ${producto.precio}</p>
+      {user?.rol === "seller" && (
+        <>
+          <h3>Publicar Nuevo Producto</h3>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Nombre del Producto:</label>
+              <input
+                type="text"
+                value={nombreProducto}
+                onChange={(e) => setNombreProducto(e.target.value)}
+                required
+              />
             </div>
-          ))}
-      </div>
+            <div>
+              <label>Descripción del Producto:</label>
+              <textarea
+                value={descripcionProducto}
+                onChange={(e) => setDescripcionProducto(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label>Precio del Producto:</label>
+              <input
+                type="number"
+                value={precioProducto}
+                onChange={(e) => setPrecioProducto(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit">Publicar Producto</button>
+          </form>
+
+          <h3>Mis Productos</h3>
+          <div className="productos-list">
+            {Array.isArray(productos) &&
+              productos.map((producto) => (
+                <div key={producto.id} className="producto-item">
+                  <h4>{producto.nombre_producto}</h4>
+                  <p>{producto.descripcion}</p>
+                  <p><strong>Precio:</strong> ${producto.precio}</p>
+                </div>
+              ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
