@@ -6,6 +6,8 @@ const Profile = () => {
   const {
     user,
     error,
+    imagenProducto,
+    setImagenProducto,
     nombreProducto,
     setNombreProducto,
     descripcionProducto,
@@ -16,8 +18,11 @@ const Profile = () => {
     handleLogout,
     handleSubmit,
     userToken,
-    loading, // Añadir loading al destructuring
+    loading,
+    handleDelete,
   } = useContext(ProfileContext);
+
+
 
   if (loading) {
     return <p>Cargando...</p>;
@@ -43,10 +48,24 @@ const Profile = () => {
       <button onClick={handleLogout} className="logout-button">Cerrar sesión</button>
 
 
+
+
+
+
+
       {user?.rol === "seller" && (
         <>
           <h3>Publicar Nuevo Producto</h3>
           <form onSubmit={handleSubmit}>
+        <div>
+          <label>URL de la imagen del producto:</label>
+          <input
+            type="text"
+            value={imagenProducto}
+            onChange={(e) => setImagenProducto(e.target.value)}
+            required
+          />
+        </div>
             <div>
               <label>Nombre del Producto:</label>
               <input
@@ -76,6 +95,11 @@ const Profile = () => {
             <button type="submit">Publicar Producto</button>
           </form>
 
+
+
+
+
+
           <h3>Mis Productos</h3>
           <div className="productos-list">
             {Array.isArray(productos) &&
@@ -84,6 +108,7 @@ const Profile = () => {
                   <h4>{producto.nombre_producto}</h4>
                   <p>{producto.descripcion}</p>
                   <p><strong>Precio:</strong> ${producto.precio}</p>
+              <button onClick={() => handleDelete(producto.id)}>Eliminar</button>
                 </div>
               ))}
           </div>

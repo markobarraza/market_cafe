@@ -7,6 +7,7 @@ export const ProfileContext = createContext();
 export const ProfileProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [imagenProducto, setImagenProducto] = useState("");
   const [nombreProducto, setNombreProducto] = useState("");
   const [descripcionProducto, setDescripcionProducto] = useState("");
   const [precioProducto, setPrecioProducto] = useState("");
@@ -57,12 +58,14 @@ export const ProfileProvider = ({ children }) => {
     }
   }, []);
 
+  // cerrar sesion
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUserToken(false);
     navigate("/login");
   };
 
+  // funcion para agregar producto nuevo
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -72,6 +75,7 @@ export const ProfileProvider = ({ children }) => {
       const response = await axios.post(
         API_PRODUCTOS_URL,
         {
+          imagen: imagenProducto,
           nombre_producto: nombreProducto,
           descripcion: descripcionProducto,
           precio: precioProducto,
@@ -80,7 +84,7 @@ export const ProfileProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-
+      setImagenProducto("");
       setNombreProducto("");
       setDescripcionProducto("");
       setPrecioProducto("");
@@ -94,11 +98,35 @@ export const ProfileProvider = ({ children }) => {
     }
   };
 
+  // funcion para eliminar producto
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) throw new Error("No hay sesión activa");
+
+      const response = await axios.delete(`${API_PRODUCTOS_URL}/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (response.status === 200) {
+        // Actualizar la lista de productos después de eliminar
+        setProductos(productos.filter(producto => producto.id !== id));
+        console.log('Producto eliminado');
+      } else {
+        console.error('Error al eliminar el producto');
+      }
+    } catch (error) {
+      console.error('Error al eliminar el producto', error);
+    }
+  };
+
   return (
     <ProfileContext.Provider
       value={{
         user,
         error,
+        imagenProducto,
+        setImagenProducto,
         nombreProducto,
         setNombreProducto,
         descripcionProducto,
@@ -111,12 +139,14 @@ export const ProfileProvider = ({ children }) => {
         userToken,
         loading,
         setUserToken,
+        handleDelete,
       }}
     >
       {children}
     </ProfileContext.Provider>
   );
 };
+export default ProfileProvider;
 
 export const useProfile = () => {
   return useContext(ProfileContext);

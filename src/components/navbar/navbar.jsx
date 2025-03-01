@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
-import { ProfileContext } from "../../context/ProfileContext";
+import  {CartContext}  from "../../context/CartContext";
+import  {ProfileContext}  from "../../context/ProfileContext";
 import { miles } from "../../utils/numbers";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./navbar.css";

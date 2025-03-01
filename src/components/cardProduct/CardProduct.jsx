@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CartContext } from "../../context/CartContext";
+import  {CartContext}  from "../../context/CartContext";
 import "./CardProduct.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 

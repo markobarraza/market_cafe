@@ -1,16 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useProfile } from "../../context/ProfileContext";
+import useInput from "../../components/UseInput";
 import "./login.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const email = useInput("");
+  const password = useInput("");
   const [error, setError] = useState(null);
   const navigate = useNavigate()
-  const { setUserToken } = useProfile(); // Usar el contexto
+  const { setUserToken } = useProfile(); 
 
   const API_URL = "http://localhost:3000/login"; // URL del backend
 
@@ -20,7 +21,10 @@ export default function Login() {
 
     try {
       console.log("Enviando solicitud de inicio de sesión...");
-      const response = await axios.post(API_URL, { email, contrasena: password });
+      const response = await axios.post(API_URL, { 
+        email: email.value, // Enviar solo el valor de email
+        contrasena: password.value // Enviar solo el valor de password
+      });
       console.log("Respuesta del servidor:", response.data);
       localStorage.setItem("token", response.data.token);
       setUserToken(true); // Actualiza el estado de autenticación
@@ -45,8 +49,9 @@ export default function Login() {
             <input 
               type="email" 
               placeholder="Email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              // value={email}
+              // onChange={(e) => setEmail(e.target.value)}
+              {...email}
               className="input-field" 
               required 
             />
@@ -57,18 +62,16 @@ export default function Login() {
             <input 
               type="password" 
               placeholder="Password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              // value={password}
+              // onChange={(e) => setPassword(e.target.value)}
+              {...password}
               className="input-field" 
               required 
             />
           </div>
 
           {error && <p className="error-message">{error}</p>}
-
-          <a href="#" className="forgot-password">Forgot Password?</a>
-          <a href="/register" className="register-link">Don't have an account? Register</a>
-
+          <Link to="/register">¿No tienes una cuenta? Registrate</Link>
           <button type="submit" className="login-button">Login</button>
         </form>
       </div>

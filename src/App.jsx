@@ -12,7 +12,7 @@ import Cart from './pages/cart/Cart';
 import Contact from './pages/contact/Contact';
 import Policies from './pages/policies/Policies';
 import CartProvider from './context/CartContext';
-import { ProfileProvider } from './context/ProfileContext';
+import  ProfileProvider from './context/ProfileContext';
 
 function App() {
   return (
