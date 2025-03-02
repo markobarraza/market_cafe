@@ -11,7 +11,7 @@ const ProductDetail = () => {
 
     // Se consulta a la API de productos
     const consultarAPI = async ()=>{
-        const response = await fetch(`https://dummyjson.com/products/${id}`)
+        const response = await fetch(`http://localhost:3000/productos/${id}`)
         const data = await response.json()
         setCafe(data)
         console.log(data);
@@ -23,11 +23,12 @@ const ProductDetail = () => {
         consultarAPI()
       }, [] )
 
-
+      console.log(cafe);
+      
   return (
     <>
     <div className='my-5 row d-flex align-items-center justify-content-center'>
-        {cafe && cafe.id && <CardProduct productos = {cafe} />}
+      {cafe && cafe.id ? <CardProduct producto={cafe} /> : <div>Producto no encontrado</div>}
     </div>
     </>
   )

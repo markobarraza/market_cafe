@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./register.css";
+import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { use } from "react";
 
@@ -42,7 +43,7 @@ export default function Register() {
         <div className="icon-container">
           <i className="fas fa-coffee user-icon"></i>
         </div>
-        <h2>Create Account</h2>
+        <h2>Crear una cuenta</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
@@ -68,20 +69,21 @@ export default function Register() {
           <div className="input-group">
             <i className="fas fa-store field-icon"></i>
             <select name="rol" className="input-field" value={formularioData.rol} onChange={handleChange} required>
-              <option value="">Select Role</option>
-              <option value="seller">Seller</option>
-              <option value="buyer">Buyer</option>
+              <option value="">Selecciona tu rol</option>
+              <option value="seller">Vendedor</option>
+              <option value="buyer">Comprador</option>
             </select>
           </div>
 
-          <button type="submit" className="register-button">Register</button>
+          <button type="submit" className="register-button">Registrate</button>
 
         </form>
 
         {mensaje && <p className="message">{mensaje} </p>}
-        <a href="/Login" className="login-link">
-          Already have an account? Login
-        </a>
+        <Link to="/Login" className="login-link">¿Ya tienes una cuenta? Inicia sesión</Link>
+        {/* <a href="/Login" className="login-link">
+          ¿Ya tienes una cuenta? Inicia sesión
+        </a> */}
       </div>
     </div>
   );

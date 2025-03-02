@@ -54,6 +54,13 @@
     text-decoration: none;
     cursor: pointer;
   }
+  .containerProduct .containerProduct_info .addProduct .detalle_button{
+    font-size: .8rem;
+    color: #6c361d;
+    text-decoration: underline;
+    cursor: pointer;
+
+  }
   .containerProduct .containerProduct_info .addProduct .addProduct_button:hover{
     background-color: #b32d21;
   }

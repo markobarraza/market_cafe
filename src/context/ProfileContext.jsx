@@ -84,11 +84,13 @@ export const ProfileProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      // Actualizar la lista de productos después de crear uno nuevo
+      setProductos((prevProductos) => [...prevProductos, response.data]);
       setImagenProducto("");
       setNombreProducto("");
       setDescripcionProducto("");
       setPrecioProducto("");
-      setProductos([...productos, response.data]);
+      
     } catch (err) {
       if (err.response && err.response.status === 401) {
         handleLogout();

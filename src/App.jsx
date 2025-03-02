@@ -12,7 +12,7 @@ import Cart from './pages/cart/Cart';
 import Contact from './pages/contact/Contact';
 import Policies from './pages/policies/Policies';
 import CartProvider from './context/CartContext';
-import  ProfileProvider from './context/ProfileContext';
+import ProfileProvider from './context/ProfileContext';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/product:id" element={<ProductDetail />} />
+                <Route path="/producto/:id" element={<ProductDetail />} />
                 <Route path="/carrito" element={<Cart />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/policies" element={<Policies />} />

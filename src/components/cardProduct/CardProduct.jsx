@@ -1,11 +1,16 @@
 import { useContext } from 'react';
 import  {CartContext}  from "../../context/CartContext";
+import { useNavigate } from 'react-router-dom';
 import "./CardProduct.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const CardProduct = ({ producto }) => {
   const { incrementar, decrementar, obtenerCantidad, agregarAlCarrito } = useContext(CartContext);
+  const navigate = useNavigate()
 
+  const irAlProducto = (id)=>{
+    navigate(`/producto/${id}`)
+  }
   return (
     <div key={producto.id} className="containerProduct">
       <div className="containerProduct_img">
@@ -23,6 +28,7 @@ const CardProduct = ({ producto }) => {
 
         <div className="addProduct">
           <div onClick={() => agregarAlCarrito(producto)} className="addProduct_button">Añadir</div>
+          <div onClick={() => (irAlProducto(`${producto.id}`))} className="detalle_button">Ver +</div>
           <div className="btn-group" role="group" aria-label="Basic example">
             <button onClick={() => decrementar(producto)} type="button" className="btn btn-primary btn-addProduct">-</button>
             <p>{obtenerCantidad(producto)}</p>
