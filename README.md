@@ -1,7 +1,7 @@
 Coffe Market 
 Pagina dedicada a la compra y venta del cafe, accesorios del cafe, etc
 En la pagina existen usuarios que se les permite registrarse como venderores (tienen derecho a publicar y comprar productos) y compradores (solo pueden realizar compras de los productos que aparecen en la pagina web)
-
+Pagina del BackEnd: https://github.com/markobarraza/BackEnd_cafe se debe realizar un git clone en la terminal para descargar el proyecto, al igual que con el FrontEnd e instalar las dependencias necesarias
 
 Intalaciones necesarias:
 FrontEnd
